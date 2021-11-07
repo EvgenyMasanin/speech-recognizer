@@ -1,0 +1,37 @@
+.text-block {
+  position: relative;
+  border-radius: 10px;
+  background-color: var(--primary-color-hover);
+}
+
+.text-block:not(:empty) {
+  padding: 1rem;
+}
+
+.text-block + .text-block {
+  height: auto;
+  margin-top: 10px;
+}
+
+.text-block__text {
+  margin-right: 20px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.text-block__buttons {
+  float: right;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 1rem 1rem;
+}
+
+.text-block button {
+  padding: 10px;
+  border-radius: 5px;
+}
+.text-block__save-button {
+  margin-top: 10px;
+}

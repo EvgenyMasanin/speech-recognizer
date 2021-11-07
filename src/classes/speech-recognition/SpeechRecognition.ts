@@ -25,22 +25,24 @@ export class Recognition {
     this.isRecognize = true
 
     this.recognition.onresult = (e: SpeechRecognitionEvent) => {
-      const text = [...e.results]
-        .map((r) => r[0])
-        .map((r) => r.transcript)
-        .join('')
+      if (this.isRecognize) {
+        const text = [...e.results]
+          .map((r) => r[0])
+          .map((r) => r.transcript)
+          .join('')
 
-      const lastWord = this.words.length - 1
+        const lastWord = this.words.length - 1
 
-      this.words[lastWord] = capitalizeFirst(text)
+        this.words[lastWord] = capitalizeFirst(text)
 
-      if (e.results[0].isFinal) {
-        this.words[lastWord] = this.words[lastWord] + '.'
-        this.words.push('')
+        if (e.results[0].isFinal) {
+          this.words[lastWord] = this.words[lastWord] + '.'
+          this.words.push('')
+        }
+
+        // работает какое-то время после очистки массива
+        this.callback(this.words.join(' '))
       }
-
-      // работает какое-то время после очистки массива
-      if (this.isRecognize) this.callback(this.words.join(' '))
     }
 
     this.recognition.onend = () => {
@@ -53,10 +55,6 @@ export class Recognition {
   stopRecognition() {
     this.isRecognize = false
     this.recognition.stop()
-  }
-
-  startNewText() {
-    this.stopRecognition()
     this.words = ['']
   }
 }
