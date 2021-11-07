@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --primary-color: #232c33;
+  --primary-color-hover: #2c363d;
+  --secondary-color: #4187f6;
+  --primary-font-color: #fff;
+  --green-color: #48c12a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: 400px;
+  color: var(--primary-font-color);
+  background-color: var(--primary-color);
+  overflow-y: auto;
+}
+
+button {
+  color: var(--primary-font-color);
+  background-color: var(--secondary-color);
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.text-block {
+  position: relative;
+  border-radius: 10px;
+  background-color: var(--primary-color-hover);
+}
+
+.text-block:not(:empty) {
+  padding: 1rem;
+}
+
+.text-block + .text-block {
+  height: auto;
+  margin-top: 10px;
+}
+
+.text-block__text {
+  margin-right: 20px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.text-block__buttons {
+  float: right;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 0 1rem 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.text-block button {
+  padding: 10px;
+  border-radius: 5px;
+}
+.text-block__save-button {
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+  align-self: center;
+  margin-top: 1rem;
+  width: 250px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.done {
+  background-color: var(--green-color);
+  cursor: default;
 }
