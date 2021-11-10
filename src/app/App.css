@@ -3,9 +3,10 @@
 :root {
   --primary-color: #232c33;
   --primary-color-hover: #2c363d;
-  --secondary-color: #4187f6;
+  --secondary-color: #009688;
   --primary-font-color: #fff;
-  --green-color: #48c12a;
+  --green-color: #4caf50;
+  --disabled-color: #9e9e9e;
 }
 
 * {
@@ -32,14 +33,13 @@ body {
   color: var(--primary-font-color);
   background-color: var(--primary-color);
 }
-
+/* 
 .button {
   align-self: center;
-  margin-top: 1rem;
   width: 250px;
   height: 80px;
   border-radius: 10px;
-}
+} */
 
 .done {
   background-color: var(--green-color);

@@ -49,7 +49,9 @@ export class Recognition {
       if (this.isRecognize) this.recognition.start()
     }
 
-    this.recognition.start()
+    try {
+      this.recognition.start()
+    } catch (error) {}
   }
 
   stopRecognition() {

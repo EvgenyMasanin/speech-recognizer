@@ -1,0 +1,52 @@
+.text-block__buttons {
+  float: right;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 1rem 1rem;
+}
+
+.text-block__buttons button {
+  height: auto;
+  width: auto;
+}
+
+.text-block__copy-button,
+.text-block__save-button {
+  width: 100px;
+}
+.text-block__copy-button {
+  /* background-color: transparent; */
+  display: flex;
+  align-content: center;
+}
+/* 
+.text-block__copy-button:hover {
+  background-color: var(--disabled-color);
+} */
+
+.text-block__save-button {
+  margin-top: 10px;
+}
+
+.empty {
+  background-color: var(--disabled-color);
+  color: black;
+}
+
+.text-block__copy-button:disabled,
+.text-block__save-button:disabled {
+  background-color: var(--green-color);
+  cursor: auto;
+}
+
+@media (min-width: 768px) {
+  .text-block__buttons {
+    flex-direction: row;
+  }
+  .text-block__save-button {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}

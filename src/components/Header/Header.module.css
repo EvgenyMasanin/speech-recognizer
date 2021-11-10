@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  padding: 1rem;
+  align-content: center;
+  height: 16vh;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

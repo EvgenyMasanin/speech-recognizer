@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem 15%;
+  overflow-y: auto;
+}
+
+.container > div {
+  padding-top: 0;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 70%;
+}
+
+.buttons > button {
+  margin-left: 10px;
+}
+
+@media (max-width: 560px) {
+  .buttons {
+    flex-wrap: wrap;
+  }
+
+  .buttons > button {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  .container {
+    padding: 1rem 1rem;
+  }
+}

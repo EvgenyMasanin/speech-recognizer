@@ -1,12 +1,16 @@
 import React from 'react'
 import './App.css'
-import Button from 'components/ui/Button'
-import TextContainer from 'components/TextContainer'
+import SpeechRecognition from 'components/SpeechRecognition/SpeechRecognition'
+import Header from 'components/Header'
+import Main from 'components/Main'
 
 function App() {
   return (
     <div className="App">
-      <TextContainer />
+      <Header />
+      <Main>
+        <SpeechRecognition />
+      </Main>
     </div>
   )
 }
