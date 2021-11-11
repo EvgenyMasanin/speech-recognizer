@@ -28,7 +28,6 @@ const SpeechRecognition = () => {
       <div className={s.buttonsContainer}>
         <div className={s.buttons}>
           <RecButton isRec={isRec} setIsRec={setIsRec} />
-          <ReadButton />
         </div>
       </div>
     </div>

@@ -2,7 +2,12 @@
   display: flex;
   padding: 1rem;
   align-content: center;
-  height: 16vh;
+  height: 10vh;
+  justify-content: space-between;
+}
+.container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title {

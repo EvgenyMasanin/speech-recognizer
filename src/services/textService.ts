@@ -6,7 +6,7 @@ if (get(TEXTS) === null) set<string[]>(TEXTS, [])
 
 export const save = (text: string) => {
   const texts = get<string[]>(TEXTS)
-  texts.push(text)
+  if (!texts.includes(text)) texts.push(text)
   set<string[]>(TEXTS, texts)
 }
 

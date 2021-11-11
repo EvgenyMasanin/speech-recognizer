@@ -4,7 +4,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-  width: 250px;
-  height: 80px;
+  padding: 1rem;
   border-radius: 10px;
 }

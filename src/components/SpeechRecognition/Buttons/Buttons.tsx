@@ -1,6 +1,8 @@
 import React, { FC, useState } from 'react'
 import Button from 'components/ui/Button'
-import { MdContentCopy } from 'react-icons/md'
+import { MdContentCopy, MdSave } from 'react-icons/md'
+import { BsCheckLg } from 'react-icons/bs'
+import { useToasts } from 'react-toast-notifications'
 
 import s from './Buttons.module.css'
 
@@ -11,6 +13,18 @@ interface ButtonsProps {
 
 const Buttons: FC<ButtonsProps> = ({ onCopy, onSave }) => {
   const [saved, setSaved] = useState(false)
+
+  // const { addToast } = useToasts()
+  // useEffect(() => {
+  //   if (error) {
+  //     addToast(error, {
+  //       appearance: 'error',
+  //       autoDismiss: true,
+  //       autoDismissTimeout: 5000,
+  //     })
+  //     dispatch(setError(''))
+  //   }
+  // }, [error])
 
   const handleCopy = () => {
     onCopy()
@@ -33,7 +47,7 @@ const Buttons: FC<ButtonsProps> = ({ onCopy, onSave }) => {
         onClick={handleSave}
         disabled={saved}
       >
-        {saved ? 'Сохранено' : 'Сохранить'}
+        {saved ? <BsCheckLg /> : <MdSave />}
       </Button>
     </div>
   )

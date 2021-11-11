@@ -1,4 +1,10 @@
-import React, { DetailedHTMLProps, FC } from 'react'
+import React, {
+  DetailedHTMLProps,
+  FC,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import s from './SpinButton.module.css'
 type HTMLButtonProps = DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -6,17 +12,39 @@ type HTMLButtonProps = DetailedHTMLProps<
 >
 
 interface SpinButtonProps {
-  isSpin?: boolean
+  outlineSize?: number
+  active: boolean
 }
 
 const Button: FC<HTMLButtonProps & SpinButtonProps> = ({
   children,
   className,
-  isSpin,
+  active,
+  outlineSize,
   ...props
 }) => {
+  const [classNames, setClassNames] = useState([s.container])
+
+  useEffect(() => {
+    if (active) setClassNames((classNames) => [...classNames, s.speak, s.quiet])
+    else setClassNames([s.container])
+  }, [active])
+
+  const ref = useRef<HTMLDivElement>(null)
+  const timer = useRef<NodeJS.Timeout>(setTimeout(() => null, 0))
+
+  useEffect(() => {
+    ref.current?.style.setProperty('--size', `${outlineSize}px`)
+    clearTimeout(timer.current)
+    setClassNames((classNames) => classNames.filter((cl) => cl !== s.quiet))
+    timer.current = setTimeout(() => {
+      ref.current?.style.setProperty('--size', `0px`)
+      if (active) setClassNames((classNames) => [...classNames, s.quiet])
+    }, 500)
+  }, [outlineSize])
+
   return (
-    <div className={`${s.container} ${isSpin && s.spin}`}>
+    <div ref={ref} className={classNames.join(' ')}>
       <button className={`${s.button} ${className}`} {...props}>
         {children}
       </button>

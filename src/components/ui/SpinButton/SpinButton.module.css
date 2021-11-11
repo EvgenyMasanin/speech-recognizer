@@ -1,41 +1,20 @@
-.active {
-  position: relative;
-  background-color: red;
-  border-radius: 10px;
-  padding: 2px;
-  animation: spin infinite linear;
-}
-
-.active:after {
-  position: absolute;
-  content: '';
-  background-color: blue;
-  inset: 0;
-  z-index: 1;
-}
-
-.active:before {
-  content: '';
-}
-
 .container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2px;
-  width: 250px;
-  height: 80px;
-  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  font-size: 40px;
   background-color: var(--secondary-color);
-  overflow: hidden;
 }
 
 .button {
   position: absolute;
-  height: calc(100% - 4px);
-  width: calc(100% - 4px);
-  grid-area: A;
+  height: 97%;
+  width: 97%;
   color: var(--primary-font-color);
   background-color: var(--secondary-color);
   outline: none;
@@ -43,33 +22,50 @@
   cursor: pointer;
   transform: translateZ(100px);
   z-index: 2;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
-.spin.container:after {
+.button:active {
+  transform: scale(0.9);
+  transition: 0.1s;
+}
+
+.speak {
+  --size: 0px;
+}
+
+.quiet.container:after {
   content: '';
   position: absolute;
-  background-color: var(--primary-font-color);
-  width: calc(100% + 40px);
-  height: 60px;
-  animation: spin1 4s linear infinite;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-top: 3px solid var(--primary-font-color);
+  border-bottom: 3px solid var(--primary-font-color);
+  border-left: 3px solid var(--secondary-color);
+  border-right: 3px solid var(--secondary-color);
+  animation: spin 4s linear infinite;
 }
 
-@keyframes spin1 {
+.speak.container:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 50%;
+  outline: var(--size) solid white;
+  transition: 0.3s;
+}
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes spin2 {
-  from {
-    transform: rotate(90deg);
-  }
-  to {
-    transform: rotate(450deg);
   }
 }

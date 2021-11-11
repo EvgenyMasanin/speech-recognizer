@@ -1,5 +1,7 @@
+import React, { FC, useEffect, useRef, useState } from 'react'
 import SpinButton from 'components/ui/SpinButton'
-import React, { FC } from 'react'
+import { FaMicrophone } from 'react-icons/fa'
+import { useTypedSelector } from 'hooks/redux'
 
 interface RecButtonProps {
   isRec: boolean
@@ -7,15 +9,33 @@ interface RecButtonProps {
 }
 
 const RecButton: FC<RecButtonProps> = ({ isRec, setIsRec }) => {
+  const [size, setSize] = useState(0)
+  const currentText = useTypedSelector((state) => state.textReducer.currentText)
+
+  const timer = useRef<NodeJS.Timeout>(setTimeout(() => null, 0))
+
+  useEffect(() => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => {
+      setIsRec(false)
+    }, 4000)
+
+    if (currentText === '') setSize(0)
+    else setSize(Math.random() * 17 + 3)
+  }, [currentText])
+
+  const handleClick = () => {
+    setIsRec(!isRec)
+  }
+
   return (
     <SpinButton
       className="button"
-      isSpin={isRec}
-      onClick={() => {
-        setIsRec(!isRec)
-      }}
+      active={isRec}
+      outlineSize={size}
+      onClick={handleClick}
     >
-      {isRec ? 'Закончить распознование' : 'Начать распознование'}
+      <FaMicrophone fontSize="40" />
     </SpinButton>
   )
 }

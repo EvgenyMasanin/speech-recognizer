@@ -14,7 +14,7 @@ const ReadButton = () => {
   }
 
   return (
-    <Button className="button" onClick={handleClick}>
+    <Button className="" onClick={handleClick}>
       Показать сохранённые
     </Button>
   )

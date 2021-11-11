@@ -10,6 +10,12 @@
 .text-block__buttons button {
   height: auto;
   width: auto;
+  display: flex;
+  align-content: center;
+}
+
+.text-block__buttons button:not(:disabled):active {
+  transform: scale(0.9);
 }
 
 .text-block__copy-button,
@@ -17,14 +23,7 @@
   width: 100px;
 }
 .text-block__copy-button {
-  /* background-color: transparent; */
-  display: flex;
-  align-content: center;
 }
-/* 
-.text-block__copy-button:hover {
-  background-color: var(--disabled-color);
-} */
 
 .text-block__save-button {
   margin-top: 10px;
