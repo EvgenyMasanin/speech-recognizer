@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect, useRef, useState } from 'react'
 import SpinButton from 'components/ui/SpinButton'
 import { FaMicrophone } from 'react-icons/fa'

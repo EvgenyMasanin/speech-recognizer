@@ -1,8 +1,7 @@
-import React, { forwardRef, memo, useEffect, useState } from 'react'
+import React, { forwardRef, memo, useState } from 'react'
 import { copy, save } from 'services/textService'
 import Buttons from '../Buttons'
-import { v4 as getID } from 'uuid'
-import { textActions } from 'store/reducers/TextSlice'
+import { textActions } from 'store/reducers/text.slice'
 import { Text } from 'types/Text'
 import s from './TextBlock.module.css'
 import { useTypedDispatch } from 'hooks/redux'
@@ -13,7 +12,7 @@ interface TextBlockProps {
 }
 
 const TextBlock = memo(
-  forwardRef<HTMLDivElement, TextBlockProps>(({ text, isRec }, ref) => {
+  forwardRef<HTMLLIElement, TextBlockProps>(({ text, isRec }, ref) => {
     const handleSave = () => {
       save(text)
     }
@@ -24,13 +23,12 @@ const TextBlock = memo(
     const dispatch = useTypedDispatch()
 
     const handleDelete = () => {
-      console.log('delete')
       dispatch(textActions.deleteText(text.id))
     }
     const [saved, setSaved] = useState(false)
 
     return (
-      <div ref={ref} className={s['text-block']}>
+      <li ref={ref} className={s['text-block']}>
         {text.text === '' || isRec ? null : (
           <Buttons
             onCopy={handleCopy}
@@ -41,7 +39,7 @@ const TextBlock = memo(
           />
         )}
         <span className={s['text-block__text']}>{text.text}</span>
-      </div>
+      </li>
     )
   })
 )

@@ -2,14 +2,12 @@ import React from 'react'
 import Button from 'components/ui/Button'
 import { useTypedDispatch } from 'hooks/redux'
 import { read } from 'services/textService'
-import { textActions } from 'store/reducers/TextSlice'
+import { textActions } from 'store/reducers/text.slice'
 
 const ReadButton = () => {
   const dispatch = useTypedDispatch()
 
   const handleClick = () => {
-    console.log(read())
-
     dispatch(textActions.setTexts(read()))
   }
 

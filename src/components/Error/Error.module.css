@@ -1,0 +1,12 @@
+.container {
+  text-align: center;
+  font-size: 30px;
+}
+
+.link {
+  color: var(--secondary-color);
+}
+
+.link:hover {
+  color: var(--secondary-color-hover);
+}

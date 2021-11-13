@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import Button from 'components/ui/Button'
 import { MdContentCopy, MdSave, MdDelete } from 'react-icons/md'
 import { BsCheckLg } from 'react-icons/bs'

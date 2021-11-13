@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react'
 
 export const useScroll = (isNeed: boolean, deps: React.DependencyList) => {
-  const lastTextBlock = useRef<HTMLDivElement>(null)
-  const textContainer = useRef<HTMLDivElement>(null)
+  const lastTextBlock = useRef<HTMLLIElement>(null)
+  const textContainer = useRef<HTMLUListElement>(null)
 
   const [lastTextBlockHeight, setLastTextBlockHeight] = useState(0)
   const [lastTextBlockTop, setLastTextBlockTop] = useState(0)

@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { textReducer } from './reducers/TextSlice'
-import { appReducer } from './reducers/AppSlice'
+import { textReducer } from './reducers/text.slice'
+import { appReducer } from './reducers/app.slice'
 
 const rootReducer = combineReducers({
   textReducer,

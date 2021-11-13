@@ -1,6 +1,6 @@
 import { Lang, RecognizeType } from '../../types/types'
 
-const MySpeechRecognition =
+export const MySpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 
 function capitalizeFirst(str: string) {

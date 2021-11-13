@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-between;
+}
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.logo {
+  margin-right: 10px;
+  font-size: 40px;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 651px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .logo {
+    font-size: 30px;
+  }
+}

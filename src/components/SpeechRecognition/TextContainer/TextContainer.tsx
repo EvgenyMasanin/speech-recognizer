@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect } from 'react'
 import { useTypedDispatch, useTypedSelector } from 'hooks/redux'
 import { useScroll } from 'hooks/scroll'
-import { textActions } from 'store/reducers/TextSlice'
+import { textActions } from 'store/reducers/text.slice'
 import { Recognition } from 'classes/speech-recognition/SpeechRecognition'
 import TextBlock from '../TextBlock'
 import { v4 as getID } from 'uuid'
@@ -29,7 +30,6 @@ const TextContainer: FC<TextContainerProps> = ({ recognizer, isRec }) => {
       text: '',
     }
     if (isRec) {
-      //Maybe problem
       if (texts.length === 0 || texts[texts.length - 1].text !== '') {
         dispatch(addText(newCurrentText))
       }
@@ -48,7 +48,7 @@ const TextContainer: FC<TextContainerProps> = ({ recognizer, isRec }) => {
   ])
 
   return (
-    <div ref={textContainer} className={s.textContainer}>
+    <ul ref={textContainer} className={s.textContainer}>
       {texts.length === 0 ? (
         <h1 className={s.placeHolder}>Нажмите на кнопку для начала работы.</h1>
       ) : (
@@ -65,7 +65,7 @@ const TextContainer: FC<TextContainerProps> = ({ recognizer, isRec }) => {
           )
         })
       )}
-    </div>
+    </ul>
   )
 }
 
