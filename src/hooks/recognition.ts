@@ -1,5 +1,5 @@
-import { Recognition } from 'classes/speech-recognition/SpeechRecognition'
 import { useRef, useState } from 'react'
+import { Recognition } from 'classes/speech-recognition/SpeechRecognition'
 
 export const useRecognition = (onRecognition: (test: string) => void) => {
   const recognizer = useRef<Recognition>(

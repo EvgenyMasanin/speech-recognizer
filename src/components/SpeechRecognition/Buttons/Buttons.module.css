@@ -1,32 +1,36 @@
-.text-block__buttons {
+.buttons {
   float: right;
   align-self: flex-start;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   margin: 0 0 1rem 1rem;
 }
 
-.text-block__buttons button {
+.buttons button {
   height: auto;
   width: auto;
-  display: flex;
-  align-content: center;
 }
 
-.text-block__buttons button:not(:disabled):active {
+.buttons button + button {
+  margin-left: 10px;
+}
+
+.buttons button:not(:disabled):active {
   transform: scale(0.9);
 }
 
-.text-block__copy-button,
-.text-block__save-button {
+.copyButton,
+.saveButton {
   width: 100px;
 }
-.text-block__copy-button {
+.copyButton {
 }
 
-.text-block__save-button {
-  margin-top: 10px;
+.saveButton {
+}
+
+.deleteButton {
+  background-color: var(--danger-color);
 }
 
 .empty {
@@ -34,18 +38,8 @@
   color: black;
 }
 
-.text-block__copy-button:disabled,
-.text-block__save-button:disabled {
+.copyButton:disabled,
+.saveButton:disabled {
   background-color: var(--green-color);
   cursor: auto;
-}
-
-@media (min-width: 768px) {
-  .text-block__buttons {
-    flex-direction: row;
-  }
-  .text-block__save-button {
-    margin-top: 0;
-    margin-left: 10px;
-  }
 }

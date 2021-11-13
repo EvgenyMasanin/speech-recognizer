@@ -9,6 +9,7 @@
 
 .placeHolder {
   align-self: center;
+  text-align: center;
 }
 
 .textContainer::-webkit-scrollbar {

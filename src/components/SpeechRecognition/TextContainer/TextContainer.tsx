@@ -1,24 +1,20 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useEffect } from 'react'
 import { useTypedDispatch, useTypedSelector } from 'hooks/redux'
 import { useScroll } from 'hooks/scroll'
 import { textActions } from 'store/reducers/TextSlice'
 import { Recognition } from 'classes/speech-recognition/SpeechRecognition'
 import TextBlock from '../TextBlock'
+import { v4 as getID } from 'uuid'
 import s from './TextContent.module.css'
 
-const { setCurrentText, addText, addCurrentToTexts } = textActions
+const { changeCurrentText, addText, addCurrentToTexts } = textActions
 
 interface TextContainerProps {
   recognizer: Recognition
   isRec: boolean
-  setIsRec: (p: boolean) => void
 }
 
-const TextContainer: FC<TextContainerProps> = ({
-  recognizer,
-  isRec,
-  setIsRec,
-}) => {
+const TextContainer: FC<TextContainerProps> = ({ recognizer, isRec }) => {
   const {
     text: { texts, currentText },
   } = useTypedSelector((state) => ({
@@ -28,10 +24,17 @@ const TextContainer: FC<TextContainerProps> = ({
   const dispatch = useTypedDispatch()
 
   useEffect(() => {
+    const newCurrentText = {
+      id: getID(),
+      text: '',
+    }
     if (isRec) {
-      if (texts[texts.length - 1] !== '') dispatch(addText(''))
-      if (texts.length === 0) dispatch(addText(''))
-      dispatch(setCurrentText(''))
+      //Maybe problem
+      if (texts.length === 0 || texts[texts.length - 1].text !== '') {
+        dispatch(addText(newCurrentText))
+      }
+
+      dispatch(changeCurrentText(newCurrentText))
       recognizer.startRecognition()
     } else {
       dispatch(addCurrentToTexts(currentText))
@@ -39,20 +42,10 @@ const TextContainer: FC<TextContainerProps> = ({
     }
   }, [isRec])
 
-  const timer = useRef<NodeJS.Timeout>(setTimeout(() => null, 0))
-
-  // useEffect(() => {
-  //   clearTimeout(timer.current)
-  //   timer.current = setTimeout(timeOut, 3000)
-
-  //   function timeOut() {
-  //     console.log('timeout')
-
-  //     setIsRec(false)
-  //   }
-  // }, [currentText])
-
-  const { lastTextBlock, textContainer } = useScroll([texts, currentText])
+  const { lastTextBlock, textContainer } = useScroll(isRec, [
+    texts,
+    currentText,
+  ])
 
   return (
     <div ref={textContainer} className={s.textContainer}>
@@ -65,7 +58,7 @@ const TextContainer: FC<TextContainerProps> = ({
           return (
             <TextBlock
               ref={isLast ? lastTextBlock : null}
-              key={i}
+              key={text.id}
               text={isLast && isRec ? currentText : text}
               isRec={isLast && isRec}
             />

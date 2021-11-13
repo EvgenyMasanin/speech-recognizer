@@ -20,7 +20,7 @@ const RecButton: FC<RecButtonProps> = ({ isRec, setIsRec }) => {
       setIsRec(false)
     }, 4000)
 
-    if (currentText === '') setSize(0)
+    if (currentText?.text === '') setSize(0)
     else setSize(Math.random() * 17 + 3)
   }, [currentText])
 

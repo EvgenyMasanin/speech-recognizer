@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const useScroll = (deps: React.DependencyList) => {
+export const useScroll = (isNeed: boolean, deps: React.DependencyList) => {
   const lastTextBlock = useRef<HTMLDivElement>(null)
   const textContainer = useRef<HTMLDivElement>(null)
 
@@ -20,6 +20,7 @@ export const useScroll = (deps: React.DependencyList) => {
   }, deps)
 
   useEffect(() => {
+    if (!isNeed) return
     if (!lastTextBlock.current || !textContainer.current) return
     textContainer.current.scrollTo({
       behavior: 'smooth',

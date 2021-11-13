@@ -19,10 +19,6 @@ export class Recognition {
   ) {
     this.recognition.lang = lang
     this.recognition.interimResults = recognizeType === 'onSpeak'
-  }
-
-  startRecognition() {
-    this.isRecognize = true
 
     this.recognition.onresult = (e: SpeechRecognitionEvent) => {
       if (this.isRecognize) {
@@ -48,6 +44,10 @@ export class Recognition {
     this.recognition.onend = () => {
       if (this.isRecognize) this.recognition.start()
     }
+  }
+
+  startRecognition() {
+    this.isRecognize = true
 
     try {
       this.recognition.start()

@@ -27,7 +27,10 @@ const Button: FC<HTMLButtonProps & SpinButtonProps> = ({
 
   useEffect(() => {
     if (active) setClassNames((classNames) => [...classNames, s.speak, s.quiet])
-    else setClassNames([s.container])
+    else {
+      clearTimeout(timer.current)
+      setClassNames([s.container])
+    }
   }, [active])
 
   const ref = useRef<HTMLDivElement>(null)
@@ -37,6 +40,7 @@ const Button: FC<HTMLButtonProps & SpinButtonProps> = ({
     ref.current?.style.setProperty('--size', `${outlineSize}px`)
     clearTimeout(timer.current)
     setClassNames((classNames) => classNames.filter((cl) => cl !== s.quiet))
+
     timer.current = setTimeout(() => {
       ref.current?.style.setProperty('--size', `0px`)
       if (active) setClassNames((classNames) => [...classNames, s.quiet])

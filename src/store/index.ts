@@ -1,19 +1,10 @@
-// import { textReducer } from './Text/reducer'
-// import { applyMiddleware, combineReducers, createStore } from 'redux'
-
-// const rootReducer = combineReducers({
-//   Text: textReducer,
-// })
-
-// export const store = createStore(rootReducer)
-
-// export type RootState = ReturnType<typeof rootReducer>
-
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { textReducer } from './reducers/TextSlice'
+import { appReducer } from './reducers/AppSlice'
 
 const rootReducer = combineReducers({
   textReducer,
+  appReducer,
 })
 
 export const setupStore = () => {

@@ -1,14 +1,11 @@
-import ReadButton from 'components/SpeechRecognition/ReadButton'
-import React from 'react'
+import React, { FC } from 'react'
 import s from './Header.module.css'
 
-const Header = () => {
+const Header: FC = ({ children }) => {
   return (
     <header className={s.header}>
       <span className={s.title}>Speech recognizer</span>
-      <div className={s.container}>
-        <ReadButton />
-      </div>
+      <div className={s.container}>{children}</div>
     </header>
   )
 }
