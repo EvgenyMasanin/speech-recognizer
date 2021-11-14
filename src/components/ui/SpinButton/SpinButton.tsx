@@ -6,7 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import s from './SpinButton.module.css'
+import s from './SpinButton.module.scss'
+
 type HTMLButtonProps = DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement

@@ -3,7 +3,7 @@ import { copy, save } from 'services/textService'
 import Buttons from '../Buttons'
 import { textActions } from 'store/reducers/text.slice'
 import { Text } from 'types/Text'
-import s from './TextBlock.module.css'
+import s from './TextBlock.module.scss'
 import { useTypedDispatch } from 'hooks/redux'
 
 interface TextBlockProps {
@@ -38,7 +38,7 @@ const TextBlock = memo(
             setSaved={setSaved}
           />
         )}
-        <span className={s['text-block__text']}>{text.text}</span>
+        <span className={s.text}>{text.text}</span>
       </li>
     )
   })

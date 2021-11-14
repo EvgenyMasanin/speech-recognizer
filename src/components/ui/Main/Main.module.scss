@@ -1,10 +1,8 @@
 .main {
-  height: 90vh;
+  height: 88vh;
   padding: 1rem 15%;
-}
 
-@media (max-width: 651px) {
-  .main {
+  @media (max-width: 651px) {
     padding: 1rem 0;
   }
 }

@@ -4,7 +4,7 @@ import { MdContentCopy, MdSave, MdDelete } from 'react-icons/md'
 import { BsCheckLg } from 'react-icons/bs'
 import { useToasts } from 'react-toast-notifications'
 
-import s from './Buttons.module.css'
+import s from './Buttons.module.scss'
 
 interface ButtonsProps {
   onCopy: () => void

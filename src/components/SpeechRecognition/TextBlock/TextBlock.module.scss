@@ -1,0 +1,24 @@
+.text-block {
+  position: relative;
+  border-radius: 10px;
+  background-color: var(--primary-color-hover);
+  list-style: none;
+
+  &:not(:empty) {
+    padding: 1rem;
+  }
+  & + & {
+    height: auto;
+    margin-top: 10px;
+  }
+  button {
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+.text {
+  margin-right: 20px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}

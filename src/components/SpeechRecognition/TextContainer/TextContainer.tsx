@@ -6,7 +6,7 @@ import { textActions } from 'store/reducers/text.slice'
 import { Recognition } from 'classes/speech-recognition/SpeechRecognition'
 import TextBlock from '../TextBlock'
 import { v4 as getID } from 'uuid'
-import s from './TextContent.module.css'
+import s from './TextContent.module.scss'
 
 const { changeCurrentText, addText, addCurrentToTexts } = textActions
 

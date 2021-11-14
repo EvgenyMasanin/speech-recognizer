@@ -11,11 +11,7 @@ const ReadButton = () => {
     dispatch(textActions.setTexts(read()))
   }
 
-  return (
-    <Button className="" onClick={handleClick}>
-      Показать сохранённые
-    </Button>
-  )
+  return <Button onClick={handleClick}>Показать сохранённые</Button>
 }
 
 export default ReadButton

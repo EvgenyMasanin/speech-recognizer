@@ -5,8 +5,8 @@
 
 .link {
   color: var(--secondary-color);
-}
 
-.link:hover {
-  color: var(--secondary-color-hover);
+  &:hover {
+    color: var(--secondary-color-hover);
+  }
 }

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IconType } from 'react-icons'
-import s from './Header.module.css'
+import s from './Header.module.scss'
 
 interface HeaderProps {
   title: string

@@ -4,7 +4,7 @@ import RecButton from './RecButton'
 import { useTypedDispatch } from 'hooks/redux'
 import { textActions } from 'store/reducers/text.slice'
 import { useRecognition } from 'hooks/recognition'
-import s from './speechRecognition.module.css'
+import s from './speechRecognition.module.scss'
 
 const { setCurrentText } = textActions
 

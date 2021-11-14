@@ -3,7 +3,7 @@
 import React, { FC, ReactNode, useState } from 'react'
 import Button from '../Button'
 import { BsCaretDownFill } from 'react-icons/bs'
-import s from './DropMenu.module.css'
+import s from './DropMenu.module.scss'
 
 interface DropMenuProps {
   title: string

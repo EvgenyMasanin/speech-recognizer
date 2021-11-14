@@ -7,7 +7,7 @@ import SpeechRecognition from 'components/SpeechRecognition/SpeechRecognition'
 import { useTypedDispatch, useTypedSelector } from 'hooks/redux'
 import { appActions } from 'store/reducers/app.slice'
 import { MySpeechRecognition } from 'classes/speech-recognition/SpeechRecognition'
-import './App.css'
+import './App.scss'
 
 function App() {
   const { canWork, isChecked } = useTypedSelector((state) => state.appReducer)
