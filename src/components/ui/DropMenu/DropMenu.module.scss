@@ -32,6 +32,8 @@
   border-radius: 10px 0px 10px 10px;
   border-bottom: none;
 
+  z-index: 1;
+
   &:hover {
     background-color: var(--secondary-color);
   }
